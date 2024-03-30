@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li><button id="addCard">Add Card</button></li>
+        <li><button id="editCard">Edit Card</button></li>
+        <li><button id="updateCard">Update Card</button></li>
+        <li><button id="deleteCard">Delete Card</button></li>
+      </ul>
+    </header>
+    <div class="backdrop show">
+      <form class="newCard">
+        <h2>New card</h3>
+        <ul>
+          <li>Title: <br /><input required type="text" /></li>
+          <li>Genre: <br /><input required type="text" /></li>
+          <li>Director: <br /><input required type="text" /></li>
+          <li>Year: <br /><input required type="number" /></li>
+        </ul>
+        <button type="submit">Add movie</button>
+      </form>
+    </div>
+    <ul class="moviesList"></ul>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
