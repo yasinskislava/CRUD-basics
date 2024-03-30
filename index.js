@@ -29,6 +29,7 @@ const backdrop = document.querySelector(".backdrop");
 const addBtn = document.getElementById("addCard");
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  e.stopPropagation();
   backdrop.classList.remove("show");
   way = 1;
 });
@@ -36,6 +37,7 @@ addBtn.addEventListener("click", (e) => {
 const card = document.querySelector(".newCard");
 card.addEventListener("submit", (e) => {
   e.preventDefault();
+  e.stopPropagation();
   backdrop.classList.add("show");
   const fields = card.querySelectorAll("input");
   const info = {
@@ -95,6 +97,7 @@ const deleteBtn = document.getElementById("deleteCard");
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 deleteBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  e.stopPropagation();
   updateBtn.classList.remove("chosen");
   editBtn.classList.remove("chosen");
   const items = document.querySelectorAll("ul.moviesList > li");
@@ -109,6 +112,7 @@ deleteBtn.addEventListener("click", (e) => {
     item.classList.add("choose");
     item.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation();
       fetch(`http://localhost:3000/movies/${item.id}`, { method: "DELETE" });
       deleteBtn.classList.remove("chosen");
 
@@ -119,6 +123,7 @@ deleteBtn.addEventListener("click", (e) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 editBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  e.stopPropagation();
   updateBtn.classList.remove("chosen");
   deleteBtn.classList.remove("chosen");
 
@@ -135,7 +140,13 @@ editBtn.addEventListener("click", (e) => {
     item.classList.add("choose");
     item.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation();
       backdrop.classList.remove("show");
+      const fields = card.querySelectorAll("input");
+      fields[0].value = item.children[0].textContent.split(": ")[1];
+      fields[1].value = item.children[1].textContent.split(": ")[1];
+      fields[2].value = item.children[2].textContent.split(": ")[1];
+      fields[3].value = item.children[3].textContent.split(": ")[1];
       iter = item.id;
       editBtn.classList.remove("chosen");
 
@@ -146,6 +157,7 @@ editBtn.addEventListener("click", (e) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 updateBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  e.stopPropagation();
   editBtn.classList.remove("chosen");
   deleteBtn.classList.remove("chosen");
 
@@ -162,6 +174,12 @@ updateBtn.addEventListener("click", (e) => {
     item.classList.add("choose");
     item.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation();
+      const fields = card.querySelectorAll("input");
+      fields[0].value = item.children[0].textContent.split(": ")[1];
+      fields[1].value = item.children[1].textContent.split(": ")[1];
+      fields[2].value = item.children[2].textContent.split(": ")[1];
+      fields[3].value = item.children[3].textContent.split(": ")[1];
       backdrop.classList.remove("show");
       iter = item.id;
       updateBtn.classList.remove("chosen");
