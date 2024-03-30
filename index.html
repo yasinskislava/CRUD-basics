@@ -15,6 +15,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
@@ -31,7 +32,7 @@
       </ul>
     </header>
     <div class="backdrop show">
-      <form class="newCard">
+      <form class="newCard" onsubmit="return false">
         <h2>New card</h3>
         <ul>
           <li>Title: <br /><input required type="text" /></li>
@@ -41,6 +42,14 @@
         </ul>
         <button type="submit">Add movie</button>
       </form>
+    </div>
+    <div class="info">
+      <div>
+        <h2>Попередження(Інструкція)</h2>
+        <p>Щоб видалити або редагувати карточку потрібно спочатку обрати дію, а вже потім карточку яку хочете редагувати.Якщо ви натиснули якусь дію і передумали її виконувати можна просто нажати на неї ще раз і все відміниться</p>
+        <p>Натисніть щоб закрити</p>
+      </div>
+      
     </div>
     <ul class="moviesList"></ul>
     <script src="./index.js" type="module"></script>

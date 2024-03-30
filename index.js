@@ -95,6 +95,8 @@ const deleteBtn = document.getElementById("deleteCard");
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 deleteBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  updateBtn.classList.remove("chosen");
+  editBtn.classList.remove("chosen");
   const items = document.querySelectorAll("ul.moviesList > li");
   if (deleteBtn.classList.contains("chosen")) {
     deleteBtn.classList.remove("chosen");
@@ -117,6 +119,9 @@ deleteBtn.addEventListener("click", (e) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 editBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  updateBtn.classList.remove("chosen");
+  deleteBtn.classList.remove("chosen");
+
   const items = document.querySelectorAll("ul.moviesList > li");
   if (editBtn.classList.contains("chosen")) {
     editBtn.classList.remove("chosen");
@@ -124,13 +129,13 @@ editBtn.addEventListener("click", (e) => {
     createMarkUp();
     return;
   }
+  way = 2;
   editBtn.classList.add("chosen");
   items.forEach((item) => {
     item.classList.add("choose");
     item.addEventListener("click", (e) => {
       e.preventDefault();
       backdrop.classList.remove("show");
-      way = 2;
       iter = item.id;
       editBtn.classList.remove("chosen");
 
@@ -141,6 +146,9 @@ editBtn.addEventListener("click", (e) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 updateBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  editBtn.classList.remove("chosen");
+  deleteBtn.classList.remove("chosen");
+
   const items = document.querySelectorAll("ul.moviesList > li");
   if (updateBtn.classList.contains("chosen")) {
     updateBtn.classList.remove("chosen");
@@ -148,17 +156,22 @@ updateBtn.addEventListener("click", (e) => {
     createMarkUp();
     return;
   }
+  way = 3;
   updateBtn.classList.add("chosen");
   items.forEach((item) => {
     item.classList.add("choose");
     item.addEventListener("click", (e) => {
       e.preventDefault();
       backdrop.classList.remove("show");
-      way = 3;
       iter = item.id;
       updateBtn.classList.remove("chosen");
 
       createMarkUp();
     });
   });
+});
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+const preload = document.querySelector(".info");
+preload.addEventListener("click", () => {
+  preload.classList.add("show");
 });
